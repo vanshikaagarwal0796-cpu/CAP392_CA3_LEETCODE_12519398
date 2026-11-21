@@ -1,25 +1,30 @@
 class Solution {
-public:
-bool isalphanumeric(char ch){
-    if((ch>='0'&&ch<='9')||(tolower(ch)>='a'&& tolower(ch)<='z')){
+    boolean isalphanumeric(char ch){
+    if((ch>='0'&&ch<='9')||(Character.toLowerCase(ch)>='a'&& Character.toLowerCase(ch)<='z')){
         return true;
     }
     return false;
     }
-    bool isPalindrome(string s) {
-     int st=0,end=s.length();   
-     while (st<end){
-        if(!isalphanumeric(s[st])){
-        st++;continue;
-     }
-     if(!isalphanumeric(s[end])){
-        end--;continue;
-     }
-     if(tolower(s[st])!=tolower(s[end])){
+    public boolean isPalindrome(String s) {
+     int i=0;
+     int j=s.length()-1;
+     while(i<j){
+        char ch1=s.charAt(i);
+        char ch2=s.charAt(j);
+        if(!isalphanumeric(ch1)){
+            i++;
+            continue;//matlab skip remaining code fir se while chala 
+        }
+        if(!isalphanumeric(ch2)){
+            j--;
+            continue;
+        }  
+    if(Character.toLowerCase(ch1)!=Character.toLowerCase(ch2)){
         return false;
-     } 
-     st++;end--;
-     }
-     return true;
     }
-};
+    i++;
+    j--;
+     } 
+     return true;  
+    }
+}
